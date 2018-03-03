@@ -7,7 +7,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
-gem 'puma', '~> 3.7'
+gem 'puma', '3.9.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem "octokit", "~> 4.0"
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
+gem 'mina'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
