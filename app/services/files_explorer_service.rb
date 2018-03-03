@@ -11,7 +11,7 @@ class FilesExplorerService
   end
 
   def search
-    result = Api::Github::Search.new.search_code(
+    result = ::Api::Github::Search.new.search_code(
         {
             repo_name: repo_name,
             keyword: keyword,
@@ -28,7 +28,7 @@ class FilesExplorerService
   end
 
   def repository_exist?
-    Api::Github::Search.new.repository?(repo_name)
+    ::Api::Github::Search.new.repository?(repo_name)
   end
 
   private
