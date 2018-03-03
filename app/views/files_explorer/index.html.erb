@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="search-wrapper">
+    <%= form_tag files_explorer_path, method: :get do %>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="">Repository name</span>
+          </div>
+          <%= text_field_tag :repo_name, @service.repo_name, class: "form-control", placeholder: "Repository name" %>
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="">Keyword</span>
+          </div>
+          <%= text_field_tag :keyword, @service.keyword, class: "form-control", placeholder: "Keyword" %>
+          <div class="input-group-append">
+            <%= submit_tag 'Search', class: "btn btn-outline-primary" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <% if flash[:notice].present? %>
+      <div class="alert-wrapper">
+        <div class="alert alert-warning" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      </div>
+  <% else %>
+      <div class="results-wrapper">
+        <% @result.items.each do |item| %>
+            <div class="card">
+              <h6 class="card-header">
+                <%= link_to item.name, item.html_url, target: "_blank" %>
+              </h6>
+              <div class="card-body">
+                <% item.text_matches.each do |text| %>
+                    <p><%= text.matches %></p>
+                    <p class="card-text"><%= highlight_code(text) %></p>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+      <div class="paginator-wrapper">
+        <%= paginate @service.paginator, window: 2, theme: 'twitter-bootstrap-4' %>
+      </div>
+  <% end %>
+</div>
