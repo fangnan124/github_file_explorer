@@ -26,8 +26,7 @@ module GithubFileExplorer
     # -- all .rb files in that directory are automatically loaded.
 
     # Don't generate system test files.
-    config.eager_load_paths << "#{Rails.root}/lib"
 
-    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << "#{Rails.root}/lib"
   end
 end

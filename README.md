@@ -1,3 +1,3 @@
 # README
 
-A demo for github files explorer.
+A github files explorer.
